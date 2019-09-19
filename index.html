@@ -17,7 +17,50 @@
     <title>Hackathon - SpaceX Launch Event</title>
     <script>
 
-            // Add your JavaScript code here
+        function infoPrint() {
+            let name = document.getElementById("fullName_Id").value;
+            let email = document.getElementById("email_Id").value;
+            let mobile = document.getElementById("mobile_Id").value;
+            let company = document.getElementById("company_Id").value;
+            let state = document.getElementById("state_Id").value;
+
+            if (name.length === 0) {
+                alert("Please enter a valid name")
+            }
+
+            name = name[0].toUpperCase() + name.substr(1);
+
+            if (!email.includes("@", ".")) {
+                alert("Please enter a valid e-mail address");
+            }
+
+            if (!mobile.includes("-")) {
+                alert("Please enter a valid phone number");
+            }
+
+            // if (company.length === 0) {
+            //     alert("Please enter a valid company name");
+
+
+
+                // if (state.length !== 2) {
+                //     alert("Please enter a valid state abbreviation");
+                // }
+                
+
+
+
+                document.getElementById("name_Output").innerHTML = name;
+                document.getElementById("email_Output").innerHTML = email;
+                document.getElementById("phone_Output").innerHTML = mobile;
+                document.getElementById("companyName_Output").innerHTML = company;
+                document.getElementById("state_Output").innerHTML = state;
+
+
+
+            }
+        
+
 
     </script>
 </head>
@@ -37,26 +80,27 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Full name</label>
-                    <input type="{{FILL_OUT}}" class="form-control" id="{{FILL_OUT}}" />
+                    <input type="text" id="fullName_Id">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="{{FILL_OUT}}" class="form-control" id="{{FILL_OUT}}" />
+                    <input type="text" class="form-control" id="email_Id" />
                 </div>
                 <div class="form-group">
                     <label>Mobile Number</label>
-                    <input type="{{FILL_OUT}}" class="form-control" id="{{FILL_OUT}}" placeholder="nnn-nnn-nnnn" />
+                    <input type="text" class="form-control" id="mobile_Id" placeholder="nnn-nnn-nnnn" />
                 </div>
                 <div class="form-group">
                     <label>Company</label>
-                    <input type="{{FILL_OUT}}" class="form-control" id="{{FILL_OUT}}" />
+                    <input type="text" class="form-control" id="company_Id" />
                 </div>
                 <div class="form-group">
                     <label>State</label>
-                    <input type="{{FILL_OUT}}" class="form-control" id="{{FILL_OUT}}" />
+                    <input type="text" class="form-control" id="state_Id" />
                 </div>
                 <div class="form-group">
-                    <input type="{{FILL_OUT}}" class="btn btn-primary" value="Launch" />
+                    <!-- //   <button type="button" class="btn btn-primary" value="Launch" onclick="infoPrint()">Launch!<button> -->
+                    <button type="button" onclick="infoPrint()">Launch!</button>
                 </div>
             </div>
             <div class="col-md-6">
@@ -64,10 +108,12 @@
                     <div class="card">
                         <img src="spaceship.jpg" class="spaceship" alt="Spaceship">
                         <div class="card-body">
-                            <h5 class="card-title" id="{{FILL_OUT}}">{{FILL_OUT_FULL_NAME}}</h5>
-                            <p class="card-text" id="{{FILL_OUT}}">{{FILL_OUT_COMPANY_NAME}}, {{FILL_OUT_STATE}}</p>
-                            <p class="card-text" id="{{FILL_OUT}}">{{FILL_OUT_PHONE_NUMBER}}</p>
-                            <p class="card-text" id="{{FILL_OUT}}">{{FILL_OUT_EMAIL_ADDRESS}}</p>
+                            <h5 class="card-title" id="name_Output">{{FILL_OUT_FULL_NAME}}</h5>
+                            <p class="card-text" id="companyName_Output">{{FILL_OUT_COMPANY_NAME}}, {{FILL_OUT_STATE}}
+                            </p>
+                            <p class="card-text" id="phone_Output">{{FILL_OUT_PHONE_NUMBER}}</p>
+                            <p class="card-text" id="email_Output">{{FILL_OUT_EMAIL_ADDRESS}}</p>
+                            <p class="card-text" id="state_Output">{{FILL_OUT_EMAIL_ADDRESS}}</p>
                         </div>
                         <div class="card-body">
                             <img id="barcode" alt="barcode">
